@@ -1,0 +1,147 @@
+<app-header [toggleState]="toggleState1" (toggler)="toggleSideNav($event)"></app-header>
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+	<mat-sidenav style="width: 300px;" [mode]="'over'" [opened]="toggleState2" (closedStart)="toggleState2 = false"
+		[autoFocus]="false">
+		<div>
+			<div class="p-3">
+				<div class="d-flex align-items-center">
+					<div class="position-relative rounded overhide">
+						<!-- <img [src]="" alt="profile_img" height="80px" /> -->
+						<div class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">
+							<h1 class="text-white m-0 p-0">
+								<b>P</b>
+							</h1>
+						</div>
+					</div>
+					<div class="ml-2">
+						<p class="mb-0" style="line-height: 1">
+							<b>Prashant</b>
+						</p>
+						<small class="text-prime" routerLink="/app/profile" (click)="toggleState2 = false">View
+							Profile</small>
+					</div>
+				</div>
+			</div>
+			<small class="text-grey-col px-3">My Activity</small>
+			<div class="px-4 border-bottom">
+				<div class="d-flex align-items-center py-3" routerLink="/app/user/wishlist" routerLinkActive="active">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/wishlist_icon.png" alt="wishlist_icon" /> -->
+					</div>
+					<p class="mb-0">Wishlist</p>
+				</div>
+				<div class="d-flex align-items-center py-3" routerLink="/app/bag" routerLinkActive="active">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/cart_icon.png" alt="cart_icon" /> -->
+					</div>
+					<p class="mb-0">Shopping Cart</p>
+					<p class="ml-auto mb-0 font-12"></p>
+				</div>
+			</div>
+			<div class="px-4">
+				<div class="d-flex align-items-center py-3" routerLink="/app/user/orders" routerLinkActive="active">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/order_icon.png" alt="order_icon" /> -->
+					</div>
+					<p class="mb-0">Order History</p>
+				</div>
+				<div class="d-flex align-items-center py-3" routerLink="/app/user/account" routerLinkActive="active">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/account_icon.png" alt="account_icon" /> -->
+					</div>
+					<p class="mb-0">My Account</p>
+				</div>
+				<div class="d-flex align-items-center py-3" routerLink="/app/rewards" routerLinkActive="active">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/reward_icon.png" alt="reward_icon" /> -->
+					</div>
+					<p class="mb-0">Rewards</p>
+				</div>
+				<div class="d-flex align-items-center py-3" routerLink="/app/help" routerLinkActive="active">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/help_icon.png" alt="help_icon" /> -->
+					</div>
+					<p class="mb-0">Get Help</p>
+				</div>
+				<div class="d-flex align-items-center py-3">
+					<div class="menu-icon mr-2">
+						<!-- <img src="assets/logout_icon.png" alt="logout_icon" /> -->
+					</div>
+					<p class="mb-0">Logout</p>
+				</div>
+			</div>
+		</div>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+			<mat-sidenav class="sidenav-one border-0" style="width: 300px;" [mode]="'over'"
+				[opened]="toggleState1" [autoFocus]="false" disableClose>
+				<div>
+					<div class="py-3">
+						<form class="p-2">
+							<div class="input-group">
+								<span class="input-group-text border-end-0 bg-white border-rounded-left"><i
+										class="fa fa-search"></i></span>
+								<input class="form-control border-start-0 border-rounded-right remove-highlight"
+									type="text" />
+							</div>
+						</form>
+					</div>
+					<div class="py-3">
+						<p class="px-5 mb-0">Categories</p>
+					</div>
+					<div class="py-3">
+						<p class="px-5 mb-0">Recent</p>
+					</div>
+					<div class="py-3">
+						<p class="px-5 mb-0">Popular</p>
+					</div>
+					<div class="py-3" routerLink="/app/rewards" routerLinkActive="active">
+						<p class="px-5 mb-0">Reward & Play</p>
+					</div>
+					<div class="py-3" routerLink="/app/content/blogs" routerLinkActive="active">
+						<p class="px-5 mb-0">Blog</p>
+					</div>
+					<div class="d-flex justify-content-center py-3">
+						<div class="text-center mx-2">
+							<!-- <img src="assets/profile_icon.png" alt="profile_icon" /> -->
+							<p class="mb-0">Profile</p>
+						</div>
+						<div class="text-center mx-2" routerLink="/app/notifications" routerLinkActive="active">
+							<!-- <img src="assets/notification_icon.png" alt="notification_icon" /> -->
+							<p class="mb-0">Notification</p>
+						</div>
+						<div class="position-relative text-center mx-2" routerLink="/app/bag" routerLinkActive="active">
+							<!-- <img src="assets/bag_icon.png" alt="bag_icon" /> -->
+							<p class="mb-0">Bag</p>
+							<!-- <div class="position-absolute bg-prime rounded-pill text-white p-1"
+								style="top: 0px; right: -5px; height: 19px; line-height: 1">
+								<p class="mb-0 font-12"></p>
+							</div> -->
+						</div>
+					</div>
+					<div class="py-3 text-center" (click)="toggleState2 = true">
+						<p class="px-5 mb-0">Log In/Sign Up</p>
+					</div>
+				</div>
+			</mat-sidenav>
+			<mat-sidenav-content>
+				<div #container [class]="toggleState1 ? 'scale-out' : 'scale-in'"
+					style="height: 100%; width: 100%; overflow: hidden; padding: 10px 0px;">
+                    <div class="container">
+                        <!-- <router-outlet></router-outlet> -->
+                        <mat-form-field appearance="outline">
+                            <mat-label (click)="input.focus()">State</mat-label>
+                            <mat-select #select [(ngModel)]="state" (click)="input.focus()">
+                                <mat-option>None</mat-option>
+                                <mat-option *ngFor="let state of selectedStates" [value]="state" (click)="input.value = ''; onKey(input.value)">{{state}}</mat-option>
+                            </mat-select>
+                            <input #input matInput style="position: absolute; left: 0; width: 90%;" autocomplete="none" (keyup)="onKey(input.value)" (click)="$event.stopPropagation(); select.toggle()">
+                        </mat-form-field>
+                    </div>
+				</div>
+			</mat-sidenav-content>
+		</mat-sidenav-container>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>
